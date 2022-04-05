@@ -1,0 +1,10 @@
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.deps.json
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.dll
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.pdb
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.AssemblyReference.cache
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.AssemblyInfoInputs.cache
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.AssemblyInfo.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CoreCompileInputs.cache
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.dll
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.pdb
