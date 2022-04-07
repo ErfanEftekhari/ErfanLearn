@@ -37,3 +37,4 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\_ViewSta
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.RazorTargetAssemblyInfo.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.Views.pdb
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\SuccessRegister.cshtml.g.cs

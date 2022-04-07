@@ -8,3 +8,6 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core
 D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CoreCompileInputs.cache
 D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.dll
 D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.pdb
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.dll
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.pdb
+D:\ErfanLearn\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CopyComplete
