@@ -161,6 +161,7 @@
       },
       "ErfanLearn.Core/1.0.0": {
         "dependencies": {
+          "ErfanLearn.DataLayer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.2"
         },

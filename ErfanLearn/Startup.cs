@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ErfanLearn.Core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ErfanLearn.DataLayer.Context;
+using ErfanLearn.Core.Services.Interface;
 
 namespace ErfanLearn.Web
 {
@@ -35,6 +33,12 @@ namespace ErfanLearn.Web
                 options.UseSqlServer(Configuration.GetConnectionString("ErfanLearnConnection"));
             }
             );
+
+            #endregion
+
+            #region IoC
+
+            services.AddTransient<IUserService,UserService>();
 
             #endregion
         }
