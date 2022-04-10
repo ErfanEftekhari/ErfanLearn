@@ -1,4 +1,5 @@
 ﻿using ErfanLearn.DataLayer.Entities.User;
+using ErfanLearn.Core.DTOs;
 
 namespace ErfanLearn.Core.Services.Interface
 {
@@ -9,5 +10,9 @@ namespace ErfanLearn.Core.Services.Interface
         bool IsExistEmail(string email);
 
         int CreateUser(User user);
+
+        User LoginUser(LoginViewModel model);
+
+        bool ActiveAccount(string activecode);
     }
 }
