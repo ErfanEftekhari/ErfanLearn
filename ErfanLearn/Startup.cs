@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ErfanLearn.DataLayer.Context;
 using ErfanLearn.Core.Services.Interface;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
 
 namespace ErfanLearn.Web
 {
@@ -25,6 +27,23 @@ namespace ErfanLearn.Web
         {
             services.AddMvc();
 
+            #region Authentication
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+            }).AddCookie(options =>
+            {
+                options.LoginPath = "/Login";
+                options.LogoutPath = "/Logout";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(43200);
+
+            });
+
+            #endregion
 
             #region DataBase Context
 
@@ -51,8 +70,10 @@ namespace ErfanLearn.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseMvcWithDefaultRoute();
+            
 
             app.Run(async (context) =>
             {

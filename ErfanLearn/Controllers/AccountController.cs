@@ -5,6 +5,10 @@ using ErfanLearn.DataLayer.Entities.User;
 using ErfanLearn.Core.Generator;
 using System;
 using ErfanLearn.Core.Security;
+using System.Collections.Generic;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace ErfanLearn.Web.Controllers
 {
@@ -77,6 +81,22 @@ namespace ErfanLearn.Web.Controllers
             {
                 if (user.IsActive)
                 {
+                    var claims = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                        new Claim(ClaimTypes.Name, user.UserName),
+                        new Claim(ClaimTypes.Email, user.Email)
+                    };
+
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+
+                    var properties = new AuthenticationProperties
+                    {
+                        IsPersistent = model.RememberMe
+                    };
+                    HttpContext.SignInAsync(principal, properties);
+
                     ViewBag.IsSuccess = true;
                     return View();
                 }
@@ -93,6 +113,13 @@ namespace ErfanLearn.Web.Controllers
         {
             ViewBag.IsActive = _userService.ActiveAccount(id);
             return View();
+        }
+
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/Login");
         }
 
     }
