@@ -38,3 +38,9 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.Razor
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.Views.pdb
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\SuccessRegister.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\ActiveAccount.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ActiveEmail.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SendPassToEmail.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
