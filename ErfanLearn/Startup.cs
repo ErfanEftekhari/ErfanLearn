@@ -9,6 +9,7 @@ using ErfanLearn.DataLayer.Context;
 using ErfanLearn.Core.Services.Interface;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
+using ErfanLearn.Core.Convertors;
 
 namespace ErfanLearn.Web
 {
@@ -58,6 +59,7 @@ namespace ErfanLearn.Web
             #region IoC
 
             services.AddTransient<IUserService,UserService>();
+            services.AddTransient<IViewRenderService, RenderViewToString>();
 
             #endregion
         }

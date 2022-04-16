@@ -38,6 +38,11 @@ namespace ErfanLearn.Core.Services
 
         }
 
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.SingleOrDefault(x => x.Email.Trim().ToLower() == email.Trim().ToLower());
+        }
+
         public bool IsExistEmail(string email)
         {
             return _context.Users.Any(x => x.Email.Trim().ToLower() == email.Trim().ToLower());
@@ -53,6 +58,21 @@ namespace ErfanLearn.Core.Services
             string passWord = PasswordHelper.EncodePasswordMd5(model.Password);
             return _context.Users.SingleOrDefault(x => x.Email.ToUpper() == email.ToUpper() &&
                                                        x.Password == passWord);
+        }
+
+        public bool ResetPassword(ResetPasswordViewModel model)
+        {
+            var user = _context.Users.SingleOrDefault(x => x.ActiveCode == model.ActiveCode);
+            
+            if(user == null)
+                return false;
+
+            user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
+            user.ActiveCode = NameGenerator.GeneratorUniqCode();
+
+            _context.SaveChanges();
+
+            return true;
         }
     }
 }

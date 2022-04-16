@@ -9,15 +9,19 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using ErfanLearn.Core.Convertors;
+using ErfanLearn.Core.Senders;
 
 namespace ErfanLearn.Web.Controllers
 {
     public class AccountController : Controller
     {
         private IUserService _userService;
-        public AccountController(IUserService userService)
+        private IViewRenderService _viewRender;
+        public AccountController(IUserService userService,IViewRenderService viewRender)
         {
             _userService = userService;
+            _viewRender = viewRender;
         }
 
         [Route("Register")]
@@ -59,8 +63,16 @@ namespace ErfanLearn.Web.Controllers
             };
             _userService.CreateUser(user);
 
+            #region Send Activation Email
+
+            string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
+            SendEmail.Send(user.Email, "فعالسازی", body);
+
+            #endregion
+
             return View("SuccessRegister",user);
         }
+
 
         [Route("Login")]
         public IActionResult Login()
@@ -121,6 +133,53 @@ namespace ErfanLearn.Web.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Redirect("/Login");
         }
+        
+        [Route("ForgotPassword")]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [Route("ForgotPassword")]
+        public IActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if(! ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = _userService.GetUserByEmail(model.Email);
+            
+            if(user != null)
+            {
+                string body = _viewRender.RenderToStringAsync("_SendPassToEmail", user);
+                SendEmail.Send(user.Email, "فرموشی رمز", body);
+            }
+
+            ViewBag.IsSend = true;
+            return View();
+        }
+
+        public IActionResult ResetPassword(string id)
+        {
+            return View(new ResetPasswordViewModel 
+            { 
+                ActiveCode = id
+            });
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(ResetPasswordViewModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if(! _userService.ResetPassword(model))
+                return NotFound();
+
+            return Redirect("/Login");
+        }
     }
 }

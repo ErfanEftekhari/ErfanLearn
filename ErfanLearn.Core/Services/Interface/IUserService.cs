@@ -14,5 +14,9 @@ namespace ErfanLearn.Core.Services.Interface
         User LoginUser(LoginViewModel model);
 
         bool ActiveAccount(string activecode);
+
+        User GetUserByEmail(string email);
+
+        bool ResetPassword(ResetPasswordViewModel model);
     }
 }
