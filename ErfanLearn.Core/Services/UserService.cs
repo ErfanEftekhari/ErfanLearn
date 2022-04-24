@@ -19,7 +19,7 @@ namespace ErfanLearn.Core.Services
         public bool ActiveAccount(string activecode)
         {
             var user = _context.Users.SingleOrDefault(x => x.ActiveCode == activecode);
-            if(user == null || user.IsActive)
+            if (user == null || user.IsActive)
                 return false;
 
             user.IsActive = true;
@@ -63,8 +63,8 @@ namespace ErfanLearn.Core.Services
         public bool ResetPassword(ResetPasswordViewModel model)
         {
             var user = _context.Users.SingleOrDefault(x => x.ActiveCode == model.ActiveCode);
-            
-            if(user == null)
+
+            if (user == null)
                 return false;
 
             user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
@@ -74,5 +74,34 @@ namespace ErfanLearn.Core.Services
 
             return true;
         }
+
+        public User GetUserByUserName(string username)
+        {
+            return _context.Users.SingleOrDefault(u => u.UserName == username);
+        }
+
+        public InformationUserViewModel GetUserInformation(string username)
+        {
+            var user = GetUserByUserName(username);
+            InformationUserViewModel information = new InformationUserViewModel();
+            information.UserName = user.UserName;
+            information.Email = user.Email;
+            information.RegisterDate = user.RegisterDate;
+            information.Wallet = 0;
+
+            return information;
+
+        }
+
+        public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)
+        => _context.Users.Where(x => x.UserName == username)
+                                 .Select(x => new SideBarUserPanelViewModel()
+                                 {
+                                     UserName = x.UserName,
+                                     RegisterDate = x.RegisterDate,
+                                     ImageName = x.UserAvatar
+
+                                 }).Single();
+
     }
 }

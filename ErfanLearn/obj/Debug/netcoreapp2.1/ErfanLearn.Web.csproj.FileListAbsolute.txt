@@ -44,3 +44,7 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SendPassToEmail.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Home\Index.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\_ViewStart.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\_ViewImports.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Shared\_SideBar.cshtml.g.cs
