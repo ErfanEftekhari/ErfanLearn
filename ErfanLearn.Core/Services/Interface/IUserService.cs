@@ -18,5 +18,23 @@ namespace ErfanLearn.Core.Services.Interface
         User GetUserByEmail(string email);
 
         bool ResetPassword(ResetPasswordViewModel model);
+
+        User GetUserByUserName(string username);
+
+
+        #region User Panel
+
+        InformationUserViewModel GetUserInformation(string username);
+
+        SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
+
+        EditProfileViewModel GetDataForEditProfileUser(string username);
+
+        bool EditProfile(EditProfileViewModel model);
+
+        bool CompareOldPassword(string userName, string oldPassword);
+        void ChangeUserPassword(string userName, string password);
+
+        #endregion
     }
 }
