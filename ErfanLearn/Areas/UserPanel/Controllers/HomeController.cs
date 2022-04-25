@@ -41,7 +41,7 @@ namespace ErfanLearn.Web.Areas.UserPanel.Controllers
                 ModelState.AddModelError("Email", "خطایی به وجود آمده است.");
                 return View(model);
             }
-            //TODO Email Is Activ
+            //TODO Send Active Code To Email
             return Redirect("/Login?EditProfile=true");
         }
     }
