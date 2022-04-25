@@ -5,6 +5,7 @@ using ErfanLearn.DataLayer.Entities.User;
 using System.Linq;
 using ErfanLearn.Core.Security;
 using ErfanLearn.Core.Generator;
+using System.IO;
 
 namespace ErfanLearn.Core.Services
 {
@@ -94,7 +95,7 @@ namespace ErfanLearn.Core.Services
         }
 
         public SideBarUserPanelViewModel GetSideBarUserPanelData(string username)
-        => _context.Users.Where(x => x.UserName == username)
+            => _context.Users.Where(x => x.UserName == username)
                                  .Select(x => new SideBarUserPanelViewModel()
                                  {
                                      UserName = x.UserName,
@@ -103,5 +104,52 @@ namespace ErfanLearn.Core.Services
 
                                  }).Single();
 
+        public EditProfileViewModel GetDataForEditProfileUser(string username)
+            => _context.Users.Where(x => x.UserName == username)
+                                 .Select(x => new EditProfileViewModel()
+                                 {
+                                     UserName = x.UserName,
+                                     Email = x.Email,
+                                     AvatarName = x.UserAvatar
+                                 }).Single();
+
+        public bool EditProfile(EditProfileViewModel model)
+        {
+            string imgName = "";
+            if (model.UserAvatar != null)
+            {
+                string imgPath = "";
+
+                if(model.UserAvatar.FileName != model.AvatarName)
+                {
+                    imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", model.AvatarName);
+                    
+                    if (File.Exists(imgPath))
+                        File.Delete(imgPath);
+                    else
+                        return false;
+                }
+
+                imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);
+
+                imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", imgName);
+
+                using (var stream = new FileStream(imgPath, FileMode.Create))
+                {
+                    model.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            var user = GetUserByUserName(model.LastUserName);
+
+            user.UserName = model.UserName;
+            user.Email = model.Email;
+            user.UserAvatar = string.IsNullOrWhiteSpace(imgName) ? model.AvatarName : imgName;
+
+            _context.Update(user);
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }

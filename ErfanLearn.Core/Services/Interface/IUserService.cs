@@ -28,6 +28,10 @@ namespace ErfanLearn.Core.Services.Interface
 
         SideBarUserPanelViewModel GetSideBarUserPanelData(string username);
 
+        EditProfileViewModel GetDataForEditProfileUser(string username);
+
+        bool EditProfile(EditProfileViewModel model);
+
         #endregion
     }
 }

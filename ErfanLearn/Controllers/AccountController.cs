@@ -75,8 +75,11 @@ namespace ErfanLearn.Web.Controllers
 
 
         [Route("Login")]
-        public IActionResult Login()
+        public IActionResult Login(bool EditProfile = false)
         {
+            if(EditProfile)
+                ViewBag.EditProfile = true;
+
             return View();
         }
 
