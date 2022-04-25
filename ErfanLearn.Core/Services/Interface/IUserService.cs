@@ -32,6 +32,9 @@ namespace ErfanLearn.Core.Services.Interface
 
         bool EditProfile(EditProfileViewModel model);
 
+        bool CompareOldPassword(string userName, string oldPassword);
+        void ChangeUserPassword(string userName, string password);
+
         #endregion
     }
 }

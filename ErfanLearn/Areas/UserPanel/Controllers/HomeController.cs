@@ -44,5 +44,34 @@ namespace ErfanLearn.Web.Areas.UserPanel.Controllers
             //TODO Send Active Code To Email
             return Redirect("/Login?EditProfile=true");
         }
+
+
+        [Route("UserPanel/ChangePassword")]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Route("UserPanel/ChangePassword")]
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if(! _userService.CompareOldPassword(User.Identity.Name,model.OldPassword))
+            {
+                ModelState.AddModelError("OldPassword", "کلمه عبور فعلی صحیح نمی باشد.");
+                return View(model);
+            }
+
+            _userService.ChangeUserPassword(User.Identity.Name , model.Password);
+
+            ViewBag.IsSuccess = true;
+
+            return View();
+        }
+
     }
 }

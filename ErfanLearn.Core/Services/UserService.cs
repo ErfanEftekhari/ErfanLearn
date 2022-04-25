@@ -120,10 +120,10 @@ namespace ErfanLearn.Core.Services
             {
                 string imgPath = "";
 
-                if(model.UserAvatar.FileName != model.AvatarName)
+                if (model.UserAvatar.FileName != model.AvatarName)
                 {
                     imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", model.AvatarName);
-                    
+
                     if (File.Exists(imgPath))
                         File.Delete(imgPath);
                     else
@@ -150,6 +150,22 @@ namespace ErfanLearn.Core.Services
             _context.SaveChanges();
 
             return true;
+        }
+
+        public bool CompareOldPassword(string userName, string oldPassword)
+        {
+            var hashPass = PasswordHelper.EncodePasswordMd5(oldPassword);
+            return _context.Users.Any(x => x.UserName == userName &&
+                                           x.Password == hashPass);
+        }
+
+        public void ChangeUserPassword(string userName, string password)
+        {
+            var user = GetUserByUserName(userName);
+            user.Password = PasswordHelper.EncodePasswordMd5(password);
+            _context.Update(user);
+            _context.SaveChanges();
+
         }
     }
 }
