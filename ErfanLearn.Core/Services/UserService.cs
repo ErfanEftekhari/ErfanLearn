@@ -12,9 +12,11 @@ namespace ErfanLearn.Core.Services
     public class UserService : IUserService
     {
         private ErfanLearnContext _context;
-        public UserService(ErfanLearnContext context)
+        public IWalletService _walletService;
+        public UserService(ErfanLearnContext context,IWalletService walletService)
         {
             _context = context;
+            _walletService = walletService;
         }
 
         public bool ActiveAccount(string activecode)
@@ -88,7 +90,7 @@ namespace ErfanLearn.Core.Services
             information.UserName = user.UserName;
             information.Email = user.Email;
             information.RegisterDate = user.RegisterDate;
-            information.Wallet = 0;
+            information.Wallet = _walletService.WalletBalance(username);
 
             return information;
 
@@ -126,8 +128,7 @@ namespace ErfanLearn.Core.Services
 
                     if (File.Exists(imgPath))
                         File.Delete(imgPath);
-                    else
-                        return false;
+
                 }
 
                 imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);

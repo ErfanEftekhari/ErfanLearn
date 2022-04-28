@@ -50,3 +50,5 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPane
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Shared\_SideBar.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Home\EditProfile.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Home\ChangePassword.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Areas\UserPanel\Views\Wallet\Index.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Home\OnlinePayment.cshtml.g.cs
