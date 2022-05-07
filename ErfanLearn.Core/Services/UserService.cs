@@ -13,7 +13,7 @@ namespace ErfanLearn.Core.Services
     {
         private ErfanLearnContext _context;
         public IWalletService _walletService;
-        public UserService(ErfanLearnContext context,IWalletService walletService)
+        public UserService(ErfanLearnContext context, IWalletService walletService)
         {
             _context = context;
             _walletService = walletService;
@@ -167,6 +167,35 @@ namespace ErfanLearn.Core.Services
             _context.Update(user);
             _context.SaveChanges();
 
+        }
+
+        public UserForAdminViewModel GetUsers(int page = 1, string filterEmail = "", string filterUserName = "")
+        {
+            IQueryable<User> query = _context.Users;
+
+            if (!string.IsNullOrEmpty(filterEmail))
+            {
+                query = query.Where(x => x.Email.Contains(filterEmail));
+            }
+
+            if (!string.IsNullOrEmpty(filterUserName))
+            {
+                query = query.Where(x => x.UserName.Contains(filterUserName));
+            }
+
+
+            int take = 10;
+            int skip = (page - 1) * take;
+
+            UserForAdminViewModel model = new UserForAdminViewModel();
+            
+            model.CurrentPage = page;
+
+            model.PageCount = query.Count() % take == 0 ? query.Count() / take : (query.Count() / take) + 1; 
+
+            model.Users = query.OrderBy(x => x.RegisterDate).Skip(skip).Take(take).ToList();
+
+            return model;
         }
     }
 }

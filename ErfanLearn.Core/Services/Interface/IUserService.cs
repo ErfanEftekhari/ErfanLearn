@@ -36,5 +36,11 @@ namespace ErfanLearn.Core.Services.Interface
         void ChangeUserPassword(string userName, string password);
 
         #endregion
+
+        #region Admin Panel
+
+        UserForAdminViewModel GetUsers(int pageId = 1, string filterEmail = "", string filterUserName = "");
+
+        #endregion
     }
 }
