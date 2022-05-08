@@ -86,6 +86,33 @@ namespace ErfanLearn.DataLayer.Migrations
                     b.ToTable("UserRoles");
                 });
 
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Wallet.Wallet", b =>
+                {
+                    b.Property<int>("WalletId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("Amount");
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("PayStatus");
+
+                    b.Property<int>("Type");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("WalletId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Wallets");
+                });
+
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.User.UserRole", b =>
                 {
                     b.HasOne("ErfanLearn.DataLayer.Entities.User.Role", "Role")
@@ -95,6 +122,14 @@ namespace ErfanLearn.DataLayer.Migrations
 
                     b.HasOne("ErfanLearn.DataLayer.Entities.User.User", "User")
                         .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Wallet.Wallet", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.User.User", "User")
+                        .WithMany("Wallets")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

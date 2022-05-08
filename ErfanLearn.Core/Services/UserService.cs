@@ -12,9 +12,11 @@ namespace ErfanLearn.Core.Services
     public class UserService : IUserService
     {
         private ErfanLearnContext _context;
-        public UserService(ErfanLearnContext context)
+        public IWalletService _walletService;
+        public UserService(ErfanLearnContext context, IWalletService walletService)
         {
             _context = context;
+            _walletService = walletService;
         }
 
         public bool ActiveAccount(string activecode)
@@ -88,7 +90,7 @@ namespace ErfanLearn.Core.Services
             information.UserName = user.UserName;
             information.Email = user.Email;
             information.RegisterDate = user.RegisterDate;
-            information.Wallet = 0;
+            information.Wallet = _walletService.WalletBalance(username);
 
             return information;
 
@@ -126,8 +128,7 @@ namespace ErfanLearn.Core.Services
 
                     if (File.Exists(imgPath))
                         File.Delete(imgPath);
-                    else
-                        return false;
+
                 }
 
                 imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);
@@ -166,6 +167,68 @@ namespace ErfanLearn.Core.Services
             _context.Update(user);
             _context.SaveChanges();
 
+        }
+
+        public UserForAdminViewModel GetUsers(int page = 1, string filterEmail = "", string filterUserName = "")
+        {
+            IQueryable<User> query = _context.Users;
+
+            if (!string.IsNullOrEmpty(filterEmail))
+            {
+                query = query.Where(x => x.Email.Contains(filterEmail));
+            }
+
+            if (!string.IsNullOrEmpty(filterUserName))
+            {
+                query = query.Where(x => x.UserName.Contains(filterUserName));
+            }
+
+
+            int take = 10;
+            int skip = (page - 1) * take;
+
+            UserForAdminViewModel model = new UserForAdminViewModel();
+            
+            model.CurrentPage = page;
+
+            model.PageCount = query.Count() % take == 0 ? query.Count() / take : (query.Count() / take) + 1; 
+
+            model.Users = query.OrderBy(x => x.RegisterDate).Skip(skip).Take(take).ToList();
+
+            return model;
+        }
+
+        public int AddUserByAdmin(CreateUserViewModel model)
+        {
+            var user = new User();
+            user.Email = model.Email;
+            user.UserName = model.UserName;
+            user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
+            user.RegisterDate = System.DateTime.Now;
+            user.ActiveCode = NameGenerator.GeneratorUniqCode();
+            user.IsActive = true;
+
+            #region Avatar
+            string imgName = "";
+            if (model.UserAvatar != null)
+            {
+                string imgPath = "";
+
+                imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);
+
+                imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", imgName);
+
+                using (var stream = new FileStream(imgPath, FileMode.Create))
+                {
+                    model.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            #endregion
+
+            user.UserAvatar = string.IsNullOrWhiteSpace(imgName) ? "Defult.jpg" : imgName;
+
+            return CreateUser(user);
         }
     }
 }

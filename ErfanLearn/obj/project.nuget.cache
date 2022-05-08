@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tMM8w6IJw+XD7DDhI2PWLxCkK5Fg3lIDhKpDk93GdJycO//oU/eGnr831PrdVsmrYLt44qZKlk4k9GKfyUmIOA==",
+  "dgSpecHash": "vv0OxUOoDoQRnFMEJH8Enrk/B9qZkz2pfMkEdlsn/QxnSZxMYts/xy6jL4PTc57AsadH4nPhGJZSMoZCyBfaXg==",
   "success": true,
   "projectFilePath": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
   "expectedPackageFiles": [
@@ -280,7 +280,8 @@
     "C:\\Users\\Erfan\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Erfan\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\Erfan\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\Erfan\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Erfan\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Erfan\\.nuget\\packages\\zarinpalsandbox\\2.0.4\\zarinpalsandbox.2.0.4.nupkg.sha512"
   ],
   "logs": []
 }

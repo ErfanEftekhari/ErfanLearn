@@ -22,6 +22,7 @@ namespace ErfanLearn.Core.Services.Interface
         User GetUserByUserName(string username);
 
 
+
         #region User Panel
 
         InformationUserViewModel GetUserInformation(string username);
@@ -34,6 +35,14 @@ namespace ErfanLearn.Core.Services.Interface
 
         bool CompareOldPassword(string userName, string oldPassword);
         void ChangeUserPassword(string userName, string password);
+
+        #endregion
+
+        #region Admin Panel
+
+        UserForAdminViewModel GetUsers(int pageId = 1, string filterEmail = "", string filterUserName = "");
+
+        int AddUserByAdmin(CreateUserViewModel model);
 
         #endregion
     }
