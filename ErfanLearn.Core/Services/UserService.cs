@@ -197,5 +197,38 @@ namespace ErfanLearn.Core.Services
 
             return model;
         }
+
+        public int AddUserByAdmin(CreateUserViewModel model)
+        {
+            var user = new User();
+            user.Email = model.Email;
+            user.UserName = model.UserName;
+            user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
+            user.RegisterDate = System.DateTime.Now;
+            user.ActiveCode = NameGenerator.GeneratorUniqCode();
+            user.IsActive = true;
+
+            #region Avatar
+            string imgName = "";
+            if (model.UserAvatar != null)
+            {
+                string imgPath = "";
+
+                imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);
+
+                imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", imgName);
+
+                using (var stream = new FileStream(imgPath, FileMode.Create))
+                {
+                    model.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            #endregion
+
+            user.UserAvatar = string.IsNullOrWhiteSpace(imgName) ? "Defult.jpg" : imgName;
+
+            return CreateUser(user);
+        }
     }
 }
