@@ -230,5 +230,72 @@ namespace ErfanLearn.Core.Services
 
             return CreateUser(user);
         }
+
+        public EditUserViewModel GetUserForShow(int userID)
+            => _context.Users.Where(u => u.UserId == userID)
+                .Select(u => new EditUserViewModel()
+                {
+                    UserId = u.UserId,
+                    AvatarNAme = u.UserAvatar,
+                    Email = u.Email,
+                    UserName = u.UserName,
+                    UserRoles = u.UserRoles.Select(r => r.RoleId).ToList(),
+                    IsActive = u.IsActive
+                }).Single();
+
+        public bool EditUSer(EditUserViewModel model)
+        {
+            var user = _context.Users.Find(model.UserId);
+            
+            if (user == null)
+                return false;
+
+            user.Email = model.Email;
+            if(!string.IsNullOrEmpty(model.Password))
+            {
+                user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
+            }
+
+
+            string imgName = "";
+            if (model.UserAvatar != null)
+            {
+                string imgPath = "";
+
+                if (model.UserAvatar.FileName != model.AvatarNAme)
+                {
+                    imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", model.AvatarNAme);
+
+                    if (File.Exists(imgPath))
+                        File.Delete(imgPath);
+
+                }
+
+                imgName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(model.UserAvatar.FileName);
+
+                imgPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserAvatar", imgName);
+
+                using (var stream = new FileStream(imgPath, FileMode.Create))
+                {
+                    model.UserAvatar.CopyTo(stream);
+                }
+            }
+
+            user.UserAvatar = string.IsNullOrWhiteSpace(imgName) ? model.AvatarNAme : imgName;
+            user.IsActive = model.IsActive;
+            try
+            {
+                _context.Users.Update(user);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+
+
+        }
     }
 }

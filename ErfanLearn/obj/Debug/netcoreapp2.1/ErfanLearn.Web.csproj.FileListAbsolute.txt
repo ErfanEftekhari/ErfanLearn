@@ -58,3 +58,4 @@ D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImp
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Users\Index.cshtml.g.cs
 D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Users\Create.cshtml.g.cs
+D:\ErfanLearn\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Users\Edit.cshtml.g.cs
