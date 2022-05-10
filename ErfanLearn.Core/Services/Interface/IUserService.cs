@@ -48,6 +48,8 @@ namespace ErfanLearn.Core.Services.Interface
 
         bool EditUSer(EditUserViewModel model);
 
+        bool SoftDeleteUser(int userId);
+
         #endregion
     }
 }

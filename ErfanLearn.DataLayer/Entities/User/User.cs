@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using ErfanLearn.Enum;
 
 namespace ErfanLearn.DataLayer.Entities.User
 {
@@ -36,7 +36,7 @@ namespace ErfanLearn.DataLayer.Entities.User
         public string ActiveCode { get; set; }
 
         [Display(Name = "وضعیت")]
-        public bool IsActive { get; set; }
+        public Status Status { get; set; }
 
         [Display(Name = "آواتار")]
         [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد .")]

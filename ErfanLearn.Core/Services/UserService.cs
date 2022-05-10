@@ -6,6 +6,7 @@ using System.Linq;
 using ErfanLearn.Core.Security;
 using ErfanLearn.Core.Generator;
 using System.IO;
+using ErfanLearn.Enum;
 
 namespace ErfanLearn.Core.Services
 {
@@ -22,10 +23,10 @@ namespace ErfanLearn.Core.Services
         public bool ActiveAccount(string activecode)
         {
             var user = _context.Users.SingleOrDefault(x => x.ActiveCode == activecode);
-            if (user == null || user.IsActive)
+            if (user == null || user.Status == Enum.Status.Enabled)
                 return false;
 
-            user.IsActive = true;
+            user.Status = Enum.Status.Enabled;
             user.ActiveCode = NameGenerator.GeneratorUniqCode();
             _context.SaveChanges();
             return true;
@@ -206,7 +207,7 @@ namespace ErfanLearn.Core.Services
             user.Password = PasswordHelper.EncodePasswordMd5(model.Password);
             user.RegisterDate = System.DateTime.Now;
             user.ActiveCode = NameGenerator.GeneratorUniqCode();
-            user.IsActive = true;
+            user.Status = Enum.Status.Enabled;
 
             #region Avatar
             string imgName = "";
@@ -240,7 +241,7 @@ namespace ErfanLearn.Core.Services
                     Email = u.Email,
                     UserName = u.UserName,
                     UserRoles = u.UserRoles.Select(r => r.RoleId).ToList(),
-                    IsActive = u.IsActive
+                    IsActive = u.Status == Enum.Status.Enabled ? true : false,
                 }).Single();
 
         public bool EditUSer(EditUserViewModel model)
@@ -282,7 +283,7 @@ namespace ErfanLearn.Core.Services
             }
 
             user.UserAvatar = string.IsNullOrWhiteSpace(imgName) ? model.AvatarNAme : imgName;
-            user.IsActive = model.IsActive;
+            user.Status = model.IsActive == true ? Enum.Status.Enabled : Enum.Status.Disabled;
             try
             {
                 _context.Users.Update(user);
@@ -296,6 +297,21 @@ namespace ErfanLearn.Core.Services
             return true;
 
 
+        }
+
+        public bool SoftDeleteUser(int userId)
+        {
+            var user = _context.Users.Find(userId);
+            if (user == null)
+                return false;
+
+            user.Status = Status.IsDeleted;
+
+            _context.Update(user);
+
+            _context.SaveChanges();
+
+            return true;
         }
     }
 }

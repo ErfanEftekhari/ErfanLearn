@@ -27,5 +27,12 @@ namespace ErfanLearn.DataLayer.Context
 
         #endregion
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
