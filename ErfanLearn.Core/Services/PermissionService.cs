@@ -45,6 +45,14 @@ namespace ErfanLearn.Core.Services
             return true;
         }
 
+        public bool EditRolesUser(List<int> roles, int userId)
+        {
+            _context.UserRoles.Where(x=>x.UserId == userId).ToList()
+                .ForEach(x => _context.UserRoles.Remove(x));
+
+            return AddRolesToUser(roles,userId);
+        }
+
         public List<Role> GetRoles()
             => _context.Roles.ToList();
     }

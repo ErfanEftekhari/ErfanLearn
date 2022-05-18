@@ -1,5 +1,6 @@
 ﻿@page
 @using ErfanLearn.Core.Convertors
+@using ErfanLearn.Enum
 @model ErfanLearn.Web.Pages.Admin.Users.IndexModel
 @{
     ViewData["Title"] = "Index";
@@ -58,21 +59,25 @@
                                         <td>@user.UserName</td>
                                         <td>@user.Email</td>
                                         <td>
-                                            @if (user.IsActive)
+                                            @if (user.Status == Status.Enabled)
                                             {
                                                 <p class="text-success">فعال</p>
                                             }
-                                            else
+                                            else if (user.Status == Status.Disabled)
                                             {
                                                 <p class="text-danger">غیر فعال</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text-danger">حذف شده</p>
                                             }
                                         </td>
                                         <td>@user.RegisterDate.ToShamsi()</td>
                                         <td>
-                                            <a href="#" class="btn btn-warning btn-sm">
+                                            <a asp-page="Edit" asp-route-id="@user.UserId" class="btn btn-warning btn-sm">
                                                 ویرایش
                                             </a>
-                                            <a href="#" class="btn btn-danger btn-sm">
+                                            <a href="#" class="btn btn-danger btn-sm" onclick="deleteFunc(@user.UserId)">
                                                 حذف
                                             </a>
                                         </td>
@@ -106,3 +111,33 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
+<script type="text/javascript">
+
+    function deleteFunc(userId)
+    {
+      var url = '/api/admin/users/delete/'+userId;
+        $.ajax({
+            url: url,
+            type: 'Post',
+            dataType: 'json',
+            async: true,
+            success: function (data,result) {
+                console.log(data);
+                if(data.data == true)
+                {
+                    alert('با موفقیت حذف شد.');
+                    document.location.href= '/admin/users';
+                }
+                if(data.data == false)
+                {
+                    alert('خطایی به وجود آمده است');
+                }
+            },
+            error: function(request, option, err) {
+                alert('خطایی به وجود آمده است');
+            }
+        });
+    }
+
+</script>

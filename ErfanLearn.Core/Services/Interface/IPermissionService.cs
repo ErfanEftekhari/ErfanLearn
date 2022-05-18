@@ -8,5 +8,8 @@ namespace ErfanLearn.Core.Services.Interface
         List<Role> GetRoles();
 
         bool AddRolesToUser(List<int> roles,int userId);
+
+        bool EditRolesUser(List<int> roles, int userId);
+
     }
 }

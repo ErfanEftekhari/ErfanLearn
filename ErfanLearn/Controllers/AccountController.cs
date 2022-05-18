@@ -57,7 +57,7 @@ namespace ErfanLearn.Web.Controllers
                 Email = model.Email,
                 ActiveCode = NameGenerator.GeneratorUniqCode(),
                 UserAvatar = "Defult.jpg",
-                IsActive = false,
+                Status = Enum.Status.Disabled,
                 Password = PasswordHelper.EncodePasswordMd5(model.Password),
                 RegisterDate = DateTime.Now,
             };
@@ -94,7 +94,7 @@ namespace ErfanLearn.Web.Controllers
             var user = _userService.LoginUser(model);
             if (user != null)
             {
-                if (user.IsActive)
+                if (user.Status ==Enum.Status.Enabled)
                 {
                     var claims = new List<Claim>()
                     {

@@ -44,6 +44,12 @@ namespace ErfanLearn.Core.Services.Interface
 
         int AddUserByAdmin(CreateUserViewModel model);
 
+        EditUserViewModel GetUserForShow(int userID);
+
+        bool EditUSer(EditUserViewModel model);
+
+        bool SoftDeleteUser(int userId);
+
         #endregion
     }
 }
