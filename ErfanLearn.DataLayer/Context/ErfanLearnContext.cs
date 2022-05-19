@@ -32,6 +32,8 @@ namespace ErfanLearn.DataLayer.Context
         {
             modelBuilder.Entity<User>()
                 .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
+            modelBuilder.Entity<Role>()
+                .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -1,0 +1,95 @@
+﻿@page "{id}"
+@using ErfanLearn.DataLayer.Entities.User
+@model ErfanLearn.Web.Pages.Admin.Roles.EditModel
+@{
+    ViewData["Title"] = "ویرایش نقش";
+    //List<Role> Roles = ViewData["Roles"] as List<Role>;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">ویرایش نقش</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Role.RoleId"/>
+        <input type="hidden" asp-for="Role.RoleTitle"/>
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    اطلاعات نقش
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>نام نقش</label>
+                        <label class="text-success">@Model.Role.RoleTitle</label>
+                    </div>
+@*                    <div class="form-group">
+                        <label>انتخاب نقش کاربر</label>
+                        @foreach (var item in Roles)
+                        {
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="SelectedRoles" value="@item.RoleId" @((Model.Model.UserRoles.Any(r => r == item.RoleId) ? "checked" : ""))>@item.RoleTitle
+                                </label>
+                            </div>
+                        }
+                    </div>*@
+                    <div class="form-group">
+                        <label>وضعیت نقش</label>
+                        <input type="checkbox" asp-for="IsActive"/>
+                    </div>
+                    <input type="submit" value="ویرایش اطلاعات" class="btn btn-success"/>
+                </div>
+                <div asp-validation-summary="All" class="text-danger">
+
+                </div> 
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+@*                <div class="panel-heading">
+                    تصویر پروفایل
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <img id="imgAvatar" class="thumbnail" src="/UserAvatar/@Model.Model.AvatarNAme"/>
+                    <div class="form-group">
+                        <label>انتخاب تصویر</label>
+                        <input type="file" asp-for="Model.UserAvatar">
+                    </div>
+                </div>*@
+                <!-- /.panel-body -->
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+@section Scripts
+    {
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#imgAvatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#Model_UserAvatar").change(function() {
+            readURL(this);
+        });
+    </script>
+}

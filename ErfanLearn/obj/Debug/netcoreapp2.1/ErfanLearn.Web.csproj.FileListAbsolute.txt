@@ -120,3 +120,6 @@ E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.csproj.Copy
 E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.dll
 E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.pdb
 E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.genruntimeconfig.cache
+E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Roles\Create.cshtml.g.cs
+E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Roles\Edit.cshtml.g.cs
+E:\Work\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Roles\Index.cshtml.g.cs

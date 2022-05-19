@@ -11,5 +11,14 @@ namespace ErfanLearn.Core.Services.Interface
 
         bool EditRolesUser(List<int> roles, int userId);
 
+        int CreateRole(Role role);
+
+        Role GetRoleById(int roleId);
+
+        bool EditRole(Role role);
+
+        bool SoftDeleteRole(int roleId);
+
+
     }
 }

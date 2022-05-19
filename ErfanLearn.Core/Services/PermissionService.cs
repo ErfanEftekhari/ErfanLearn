@@ -45,6 +45,25 @@ namespace ErfanLearn.Core.Services
             return true;
         }
 
+        public int CreateRole(Role role)
+        {
+            role.Status = Enum.Status.Enabled;
+            _context.Roles.Add(role);
+            _context.SaveChanges();
+            return role.RoleId;
+        }
+
+        public bool EditRole(Role role)
+        {
+            if (role == null)
+                return false;
+
+            _context.Roles.Update(role);
+            _context.SaveChanges();
+
+            return true;
+        }
+
         public bool EditRolesUser(List<int> roles, int userId)
         {
             _context.UserRoles.Where(x=>x.UserId == userId).ToList()
@@ -53,7 +72,21 @@ namespace ErfanLearn.Core.Services
             return AddRolesToUser(roles,userId);
         }
 
+        public Role GetRoleById(int roleId)
+            => _context.Roles.Find(roleId);
+
         public List<Role> GetRoles()
             => _context.Roles.ToList();
+
+        public bool SoftDeleteRole(int roleId)
+        {
+            var role = GetRoleById(roleId);
+            role.Status = Enum.Status.IsDeleted;
+            if(EditRole(role))
+                return true;
+
+            return false;
+
+        }
     }
 }
