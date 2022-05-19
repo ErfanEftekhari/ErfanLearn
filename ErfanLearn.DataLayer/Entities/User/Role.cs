@@ -1,4 +1,5 @@
-﻿using ErfanLearn.Enum;
+﻿using ErfanLearn.DataLayer.Entities.Permission;
+using ErfanLearn.Enum;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -25,6 +26,7 @@ namespace ErfanLearn.DataLayer.Entities.User
         #region Relations
 
         public virtual List<UserRole> UserRoles { get; set; }
+        public virtual List<RolePermission> RolePermissions { get; set; }
 
 
         #endregion
