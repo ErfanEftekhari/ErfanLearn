@@ -4,14 +4,16 @@ using ErfanLearn.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ErfanLearn.DataLayer.Migrations
 {
     [DbContext(typeof(ErfanLearnContext))]
-    partial class ErfanLearnContextModelSnapshot : ModelSnapshot
+    [Migration("20220519065831_AddStatusToRolesMig")]
+    partial class AddStatusToRolesMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

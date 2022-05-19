@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ErfanLearn.Enum;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ErfanLearn.DataLayer.Entities.User
@@ -18,6 +19,8 @@ namespace ErfanLearn.DataLayer.Entities.User
         [MaxLength(200,ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد .")]
         public string RoleTitle { get; set; }
 
+        [Display(Name = "وضعیت")]
+        public Status Status { get; set; }
 
         #region Relations
 

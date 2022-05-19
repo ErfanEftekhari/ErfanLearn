@@ -18,6 +18,7 @@ namespace ErfanLearn.Web.API
         [HttpPost("[action]/{id}")]
         public IActionResult Delete(int id)
         {
+            //Todo Dont Delete Own
             var result = _userService.SoftDeleteUser(id); 
             return new JsonResult(new
             {
