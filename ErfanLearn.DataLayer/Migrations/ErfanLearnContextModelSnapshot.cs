@@ -19,6 +19,46 @@ namespace ErfanLearn.DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.Permission", b =>
+                {
+                    b.Property<int>("PermissionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ParentId");
+
+                    b.Property<string>("PermissionTitle")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("PermissionId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Permissions");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.RolePermission", b =>
+                {
+                    b.Property<int>("RP_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PermissionId");
+
+                    b.Property<int>("RoleId");
+
+                    b.HasKey("RP_Id");
+
+                    b.HasIndex("PermissionId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RolePermissions");
+                });
+
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.User.Role", b =>
                 {
                     b.Property<int>("RoleId")
@@ -28,6 +68,8 @@ namespace ErfanLearn.DataLayer.Migrations
                     b.Property<string>("RoleTitle")
                         .IsRequired()
                         .HasMaxLength(200);
+
+                    b.Property<int>("Status");
 
                     b.HasKey("RoleId");
 
@@ -111,6 +153,26 @@ namespace ErfanLearn.DataLayer.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Wallets");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.Permission", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Permission.Permission")
+                        .WithMany("Permissions")
+                        .HasForeignKey("ParentId");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.RolePermission", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Permission.Permission", "Permission")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ErfanLearn.DataLayer.Entities.User.Role", "Role")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.User.UserRole", b =>

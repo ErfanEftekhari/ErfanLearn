@@ -3,6 +3,7 @@ using ErfanLearn.DataLayer.Entities.User;
 using System.Collections.Generic;
 using ErfanLearn.DataLayer.Context;
 using System.Linq;
+using ErfanLearn.DataLayer.Entities.Permission;
 
 namespace ErfanLearn.Core.Services
 {
@@ -14,9 +15,40 @@ namespace ErfanLearn.Core.Services
             _context = context;
         }
 
-        public bool AddRolesToUser(List<int> roles,int userId)
+        public bool AddPermissionsToRole(List<int> permissions, int roleId)
         {
-            if(!roles.Any())
+            if (!permissions.Any())
+            {
+                return false;
+            }
+            List<RolePermission> rolePermissions = new List<RolePermission>();
+
+            foreach (var item in permissions)
+            {
+                rolePermissions.Add(new RolePermission
+                {
+                    PermissionId = item,
+                    RoleId = roleId
+                });
+            }
+
+            try
+            {
+                _context.RolePermissions.AddRange(rolePermissions);
+                _context.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool AddRolesToUser(List<int> roles, int userId)
+        {
+            if (!roles.Any())
             {
                 return false;
             }
@@ -45,15 +77,64 @@ namespace ErfanLearn.Core.Services
             return true;
         }
 
+        public int CreateRole(Role role)
+        {
+            role.Status = Enum.Status.Enabled;
+            _context.Roles.Add(role);
+            _context.SaveChanges();
+            return role.RoleId;
+        }
+
+        public bool EditPermissionsToRole(List<int> permissions, int roleId)
+        {
+            _context.RolePermissions.Where(x => x.RoleId == roleId).ToList()
+                .ForEach(x => _context.RolePermissions.Remove(x));
+
+            return AddPermissionsToRole(permissions, roleId);
+        }
+
+        public bool EditRole(Role role)
+        {
+            if (role == null)
+                return false;
+
+            _context.Roles.Update(role);
+            _context.SaveChanges();
+
+            return true;
+        }
+
         public bool EditRolesUser(List<int> roles, int userId)
         {
-            _context.UserRoles.Where(x=>x.UserId == userId).ToList()
+            _context.UserRoles.Where(x => x.UserId == userId).ToList()
                 .ForEach(x => _context.UserRoles.Remove(x));
 
-            return AddRolesToUser(roles,userId);
+            return AddRolesToUser(roles, userId);
         }
+
+        public List<Permission> GetPermissions()
+            => _context.Permissions.ToList();
+
+        public List<int> GetPermissionsByRoleId(int roleId)
+            => _context.RolePermissions.Where(x => x.RoleId == roleId)
+                                    .Select(x => x.PermissionId)
+                                    .ToList();
+
+        public Role GetRoleById(int roleId)
+            => _context.Roles.Find(roleId);
 
         public List<Role> GetRoles()
             => _context.Roles.ToList();
+
+        public bool SoftDeleteRole(int roleId)
+        {
+            var role = GetRoleById(roleId);
+            role.Status = Enum.Status.IsDeleted;
+            if (EditRole(role))
+                return true;
+
+            return false;
+
+        }
     }
 }

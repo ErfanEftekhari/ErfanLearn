@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ErfanLearn.DataLayer.Entities.User;
 using ErfanLearn.DataLayer.Entities.Wallet;
+using ErfanLearn.DataLayer.Entities.Permission;
 
 namespace ErfanLearn.DataLayer.Context
 {
@@ -27,10 +28,18 @@ namespace ErfanLearn.DataLayer.Context
 
         #endregion
 
+        #region Permission
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
+                .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
+            modelBuilder.Entity<Role>()
+                .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
+            modelBuilder.Entity<Permission>()
                 .HasQueryFilter(x => x.Status != Enum.Status.IsDeleted);
             base.OnModelCreating(modelBuilder);
         }

@@ -11951,19 +11951,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Erfan\\.nuget\\packages\\": {}
+    "C:\\Users\\NOOR\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
+      "projectUniqueName": "E:\\Work\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
       "projectName": "ErfanLearn.Web",
-      "projectPath": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
-      "packagesPath": "C:\\Users\\Erfan\\.nuget\\packages\\",
-      "outputPath": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn\\obj\\",
+      "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
+      "packagesPath": "C:\\Users\\NOOR\\.nuget\\packages\\",
+      "outputPath": "E:\\Work\\ErfanLearn\\ErfanLearn\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Erfan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NOOR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11977,11 +11982,11 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj": {
-              "projectPath": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj"
+            "E:\\Work\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj": {
+              "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj"
             },
-            "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
-              "projectPath": "D:\\ErfanLearn\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj"
+            "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
+              "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj"
             }
           }
         }
@@ -12036,7 +12041,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
