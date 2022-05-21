@@ -1,10 +1,11 @@
 ﻿@page
 @using ErfanLearn.DataLayer.Entities.User;
+@using ErfanLearn.DataLayer.Entities.Permission;
 @using System.Collections.Generic;
 @model ErfanLearn.Web.Pages.Admin.Roles.CreateModel
 @{
     ViewData["Title"] = "افزودن نقش";
-    List<Role> Roles = ViewData["Roles"] as List<Role>;
+    List<Permission> Permissions = ViewData["Permisions"] as List<Permission>;
 }
 
 <div class="row">
@@ -27,62 +28,52 @@
                         <label>نام نقش</label>
                         <input type="text" asp-for="role.RoleTitle" class="form-control">
                     </div>
-@*                    <div class="form-group">
-                        <label>انتخاب نقش کاربر</label>
-                        @foreach (var item in Roles)
-                        {
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="SelectedRoles" value="@item.RoleId">@item.RoleTitle
-                                </label>
-                            </div>
-                        }
-
-                    </div>*@
-                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success"/>
+                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" />
                 </div>
                 <!-- /.panel-body -->
             </div>
         </div>
-@*        <div class="col-md-4">
+        <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    تصویر پروفایل
+                <div class="form-group">
+                    <label>انتخاب دسترسی</label>
+                    <ul>
+                        @foreach (var permission in Permissions.Where(p => p.ParentId == null))
+                        {
+                            <li>
+                                <input type="checkbox" name="SelectedPermission" value="@permission.PermissionId" /> @permission.PermissionTitle
+
+                                @if (Permissions.Any(p => p.ParentId == permission.ParentId))
+                                {
+                                    <ul>
+                                        @foreach (var sub in Permissions.Where(p => p.ParentId == permission.PermissionId))
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="SelectedPermission" value="@sub.PermissionId" /> @sub.PermissionTitle
+                                                @if (Permissions.Any(p => p.ParentId == sub.ParentId))
+                                                {
+                                                    <ul>
+
+                                                        @foreach (var sub2 in Permissions.Where(p => p.ParentId == sub.PermissionId))
+                                                        {
+                                                            <li>
+                                                                <input type="checkbox" name="SelectedPermission" value="@sub2.PermissionId" /> @sub2.PermissionTitle
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+
                 </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <img id="imgAvatar" class="thumbnail" src="/UserAvatar/Defult.jpg"/>
-                    <div class="form-group">
-                        <label>انتخاب تصویر</label>
-                        <input type="file" asp-for="CreateUserViewModel.UserAvatar">
-                    </div>
-                </div>
-                <!-- /.panel-body -->
             </div>
-       
-        </div>*@
-     
+
+        </div>
+
     </form>
 </div>
-
-@section Scripts
-{
-    <script>
-        function readURL(input) {
-
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imgAvatar').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#CreateUserViewModel_UserAvatar").change(function() {
-            readURL(this);
-        });
-    </script>
-}

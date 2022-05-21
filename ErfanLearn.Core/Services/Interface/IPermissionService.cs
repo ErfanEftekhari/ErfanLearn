@@ -1,4 +1,5 @@
-﻿using ErfanLearn.DataLayer.Entities.User;
+﻿using ErfanLearn.DataLayer.Entities.Permission;
+using ErfanLearn.DataLayer.Entities.User;
 using System.Collections.Generic;
 
 namespace ErfanLearn.Core.Services.Interface
@@ -18,6 +19,15 @@ namespace ErfanLearn.Core.Services.Interface
         bool EditRole(Role role);
 
         bool SoftDeleteRole(int roleId);
+
+        List<Permission> GetPermissions();
+
+        List<int> GetPermissionsByRoleId(int roleId);
+
+        bool AddPermissionsToRole(List<int> permissions, int roleId);
+        bool EditPermissionsToRole(List<int> permissions, int roleId);
+
+
 
 
     }

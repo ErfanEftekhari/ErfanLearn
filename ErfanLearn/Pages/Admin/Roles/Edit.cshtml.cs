@@ -24,17 +24,14 @@ namespace ErfanLearn.Web.Pages.Admin.Roles
 
         public void OnGet(int id)
         {
-            Role = _permissionService.GetRoleById(id);
-            IsActive = Role.Status == Enum.Status.Enabled ? true : false;
-            //ViewData["Roles"] = _permissionService.GetRoles();
+            loadRelatedData(id);
         }
 
-        public IActionResult OnPost(List<int> SelectedRoles)
+        public IActionResult OnPost(List<int> SelectedPermission)
         {
             if (!ModelState.IsValid)
             {
-                Role = _permissionService.GetRoleById(Role.RoleId);
-                //ViewData["Roles"] = _permissionService.GetRoles();
+                loadRelatedData(Role.RoleId);
                 return Page();
             }
 
@@ -43,19 +40,27 @@ namespace ErfanLearn.Web.Pages.Admin.Roles
             var result = _permissionService.EditRole(Role);
             if (!result)
             {
-                //ViewData["Roles"] = _permissionService.GetRoles();
+                loadRelatedData(Role.RoleId);
                 return Page();
             }
 
-            //Edit Role
+            //Edit permission
             //To Do Role Is Empty 
-            //if (!_permissionService.EditRolesUser(SelectedRoles, Model.UserId))
-            //{
-            //    ViewData["Roles"] = _permissionService.GetRoles();
-            //    return Page();
-            //}
+            if (!_permissionService.EditPermissionsToRole(SelectedPermission, Role.RoleId))
+            {
+                loadRelatedData(Role.RoleId);
+                return Page();
+            }
 
             return Redirect("/admin/roles");
+        }
+
+        private void loadRelatedData(int roleId)
+        {
+            Role = _permissionService.GetRoleById(roleId);
+            IsActive = Role.Status == Enum.Status.Enabled ? true : false;
+            ViewData["Permissions"] = _permissionService.GetPermissions();
+            ViewData["SelectedPermissions"] = _permissionService.GetPermissionsByRoleId(roleId);
         }
     }
 }

@@ -22,10 +22,10 @@ namespace ErfanLearn.Web.Pages.Admin.Roles
         public void OnGet()
         {
             //Getpermision
-            //ViewData["Roles"] = _permissionService.GetRoles();
+            ViewData["Permisions"] = _permissionService.GetPermissions();
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(List<int> SelectedPermissions)
         {
             if (!ModelState.IsValid)
             {
@@ -39,6 +39,12 @@ namespace ErfanLearn.Web.Pages.Admin.Roles
             {
                 return Page();
 
+            }
+
+
+            if (!_permissionService.AddPermissionsToRole(SelectedPermissions, result))
+            {
+                return Page();
             }
 
             return Redirect("/admin/roles");
