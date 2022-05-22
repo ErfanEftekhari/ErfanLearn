@@ -24,3 +24,16 @@ E:\Work\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.cspro
 E:\Work\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CopyComplete
 E:\Work\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.dll
 E:\Work\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.pdb
+E:\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.deps.json
+E:\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.dll
+E:\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.Core.pdb
+E:\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.dll
+E:\ErfanLearn\ErfanLearn.Core\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.pdb
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.AssemblyReference.cache
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.AssemblyInfoInputs.cache
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.AssemblyInfo.cs
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CoreCompileInputs.cache
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.csproj.CopyComplete
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.dll
+E:\ErfanLearn\ErfanLearn.Core\obj\Debug\netcoreapp2.1\ErfanLearn.Core.pdb

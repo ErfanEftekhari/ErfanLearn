@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y0h38o+eAxuDsy/iB0YkeJQ4hXtd8UZXyhfvGLU23rolejAwR+M+XznZeUeeWFpymnsvc4Q+erNt2ZYEwaXONw==",
+  "dgSpecHash": "1xoql5KvlYOvO3rRE0y6KrnOTlhgGjAJUVthxH90TbKHPYH+DD32ggcjKM2KRDx8oGQiU9Aa/82VVqOERqfCZQ==",
   "success": true,
-  "projectFilePath": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
+  "projectFilePath": "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.entityframeworkcore\\2.1.2\\microsoft.entityframeworkcore.2.1.2.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\2.1.2\\microsoft.entityframeworkcore.abstractions.2.1.2.nupkg.sha512",

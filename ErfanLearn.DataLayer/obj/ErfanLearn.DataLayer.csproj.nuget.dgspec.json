@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {}
+    "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {}
   },
   "projects": {
-    "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
+    "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
+        "projectUniqueName": "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
         "projectName": "ErfanLearn.DataLayer",
-        "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
+        "projectPath": "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj",
         "packagesPath": "C:\\Users\\NOOR\\.nuget\\packages\\",
-        "outputPath": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\obj\\",
+        "outputPath": "E:\\ErfanLearn\\ErfanLearn.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
