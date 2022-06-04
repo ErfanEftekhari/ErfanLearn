@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using ErfanLearn.Core.DTOs;
+using ErfanLearn.Core.Security;
 using ErfanLearn.Core.Services.Interface;
 using System.Collections.Generic;
 using ErfanLearn.DataLayer.Entities.User;
 
 namespace ErfanLearn.Web.Pages.Admin.Roles
 {
+    [PermissionChecker("ListRole")]
     public class IndexModel : PageModel
     {
         private IPermissionService _permissionService;
