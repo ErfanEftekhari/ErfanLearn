@@ -174,7 +174,6 @@ E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Home\OnlinePayment.
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ActiveEmail.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_DefaultLayout.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Footer.cshtml.g.cs
-E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_MainMenu.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_MetaTags.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_SendPassToEmail.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Styles.cshtml.g.cs
@@ -187,3 +186,4 @@ E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.csproj.CopyCompl
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.dll
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.pdb
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.genruntimeconfig.cache
+E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CourseGroupComponent\CourseGroup.cshtml.g.cs
