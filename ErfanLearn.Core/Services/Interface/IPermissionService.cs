@@ -25,7 +25,10 @@ namespace ErfanLearn.Core.Services.Interface
         List<int> GetPermissionsByRoleId(int roleId);
 
         bool AddPermissionsToRole(List<int> permissions, int roleId);
+
         bool EditPermissionsToRole(List<int> permissions, int roleId);
+
+        bool CheckPermission(string permissionName , string userName);
 
 
 

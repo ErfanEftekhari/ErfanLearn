@@ -18,3 +18,13 @@ E:\Work\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataL
 E:\Work\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.csproj.CoreCompileInputs.cache
 E:\Work\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.dll
 E:\Work\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.pdb
+E:\ErfanLearn\ErfanLearn.DataLayer\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.deps.json
+E:\ErfanLearn\ErfanLearn.DataLayer\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.dll
+E:\ErfanLearn\ErfanLearn.DataLayer\bin\Debug\netcoreapp2.1\ErfanLearn.DataLayer.pdb
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.csproj.AssemblyReference.cache
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.AssemblyInfoInputs.cache
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.AssemblyInfo.cs
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.csproj.CoreCompileInputs.cache
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.dll
+E:\ErfanLearn\ErfanLearn.DataLayer\obj\Debug\netcoreapp2.1\ErfanLearn.DataLayer.pdb

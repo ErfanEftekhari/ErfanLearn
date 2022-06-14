@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ErfanLearn.DataLayer.Context;
 using System.Linq;
 using ErfanLearn.DataLayer.Entities.Permission;
+using Microsoft.EntityFrameworkCore;
 
 namespace ErfanLearn.Core.Services
 {
@@ -75,6 +76,24 @@ namespace ErfanLearn.Core.Services
             }
 
             return true;
+        }
+
+        public bool CheckPermission(string permissionName, string userName)
+        {
+            var userRole = _context.UserRoles.Include(x => x.User)
+                                             .Where(x => x.User.UserName == userName)
+                                             .Select(x => x.RoleId)
+                                             .ToList();
+            if (!userRole.Any())
+                return false;
+            var rolePermission = _context.RolePermissions.Include(x => x.Permission)
+                                                         .Where(x => x.Permission.Name == permissionName)
+                                                         .Select(x => x.RoleId)
+                                                         .ToList();
+            if (!rolePermission.Any())
+                return false;
+
+            return userRole.Any(x => rolePermission.Contains(x));
         }
 
         public int CreateRole(Role role)

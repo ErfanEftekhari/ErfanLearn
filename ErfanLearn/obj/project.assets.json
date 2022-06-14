@@ -11957,11 +11957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Work\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
+      "projectUniqueName": "E:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
       "projectName": "ErfanLearn.Web",
-      "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
+      "projectPath": "E:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
       "packagesPath": "C:\\Users\\NOOR\\.nuget\\packages\\",
-      "outputPath": "E:\\Work\\ErfanLearn\\ErfanLearn\\obj\\",
+      "outputPath": "E:\\ErfanLearn\\ErfanLearn\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11982,11 +11982,11 @@
         "netcoreapp2.1": {
           "targetAlias": "netcoreapp2.1",
           "projectReferences": {
-            "E:\\Work\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj": {
-              "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj"
+            "E:\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj": {
+              "projectPath": "E:\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj"
             },
-            "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
-              "projectPath": "E:\\Work\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj"
+            "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj": {
+              "projectPath": "E:\\ErfanLearn\\ErfanLearn.DataLayer\\ErfanLearn.DataLayer.csproj"
             }
           }
         }

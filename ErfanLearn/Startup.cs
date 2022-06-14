@@ -62,6 +62,7 @@ namespace ErfanLearn.Web
             services.AddTransient<IViewRenderService, RenderViewToString>();
             services.AddTransient<IWalletService, WalletService>();
             services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<ICourseService, CourseService>();
 
             #endregion
         }

@@ -19,11 +19,143 @@ namespace ErfanLearn.DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.Course", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CourseDescription")
+                        .IsRequired();
+
+                    b.Property<string>("CourseImageName")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("CoursePrice");
+
+                    b.Property<string>("CourseTitle")
+                        .IsRequired()
+                        .HasMaxLength(450);
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<string>("DemoFileName")
+                        .HasMaxLength(100);
+
+                    b.Property<int>("GroupId");
+
+                    b.Property<int>("LevelId");
+
+                    b.Property<int>("StatusId");
+
+                    b.Property<int?>("SubGroup");
+
+                    b.Property<string>("Tags")
+                        .HasMaxLength(600);
+
+                    b.Property<int>("TeacherId");
+
+                    b.Property<DateTime?>("UpdateDate");
+
+                    b.HasKey("CourseId");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("LevelId");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("SubGroup");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("Course");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseEpisode", b =>
+                {
+                    b.Property<int>("EpisodeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseId");
+
+                    b.Property<string>("EpisodeFileName");
+
+                    b.Property<TimeSpan>("EpisodeTime");
+
+                    b.Property<string>("EpisodeTitle")
+                        .IsRequired()
+                        .HasMaxLength(400);
+
+                    b.Property<bool>("IsFree");
+
+                    b.HasKey("EpisodeId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseEpisode");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseGroup", b =>
+                {
+                    b.Property<int>("GroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GroupTitle")
+                        .IsRequired();
+
+                    b.Property<int?>("ParentId");
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("GroupId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("courseGroups");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseLevel", b =>
+                {
+                    b.Property<int>("LevelId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LevelTitle")
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                    b.HasKey("LevelId");
+
+                    b.ToTable("CourseLevel");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseStatus", b =>
+                {
+                    b.Property<int>("StatusId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("StatusTitle")
+                        .IsRequired()
+                        .HasMaxLength(150);
+
+                    b.HasKey("StatusId");
+
+                    b.ToTable("CourseStatus");
+                });
+
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.Permission", b =>
                 {
                     b.Property<int>("PermissionId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.Property<int?>("ParentId");
 
@@ -153,6 +285,48 @@ namespace ErfanLearn.DataLayer.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Wallets");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.Course", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.CourseGroup", "CourseGroup")
+                        .WithMany("Courses")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.CourseLevel", "CourseLevel")
+                        .WithMany("Courses")
+                        .HasForeignKey("LevelId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.CourseStatus", "CourseStatus")
+                        .WithMany("Courses")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.CourseGroup", "Group")
+                        .WithMany("SubGroup")
+                        .HasForeignKey("SubGroup");
+
+                    b.HasOne("ErfanLearn.DataLayer.Entities.User.User", "User")
+                        .WithMany()
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseEpisode", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.Course", "Course")
+                        .WithMany("CourseEpisodes")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseGroup", b =>
+                {
+                    b.HasOne("ErfanLearn.DataLayer.Entities.Course.CourseGroup")
+                        .WithMany("CourseGroups")
+                        .HasForeignKey("ParentId");
                 });
 
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.Permission", b =>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dGOHZ2sP0HmvKlUoD7Cp+F7+HW1mTyA9Nnt+Cxgn+o+hyZIHggA5vWiVhRU2vC82uowEjHDzTT9LyQI9RPrY/Q==",
+  "dgSpecHash": "e4hYRWA96gaEOYV/SJ3dM3wCvW8G7KK7FWlMp87XlTQSnoU9ZQQu1dUHagQMuoq2unMRKpQuORCPFE5yrpnpVg==",
   "success": true,
-  "projectFilePath": "E:\\Work\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
+  "projectFilePath": "E:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
