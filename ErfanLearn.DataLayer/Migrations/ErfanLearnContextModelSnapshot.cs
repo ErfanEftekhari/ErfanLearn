@@ -69,7 +69,7 @@ namespace ErfanLearn.DataLayer.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseEpisode", b =>
@@ -94,7 +94,7 @@ namespace ErfanLearn.DataLayer.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("CourseEpisode");
+                    b.ToTable("CourseEpisodes");
                 });
 
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Course.CourseGroup", b =>
@@ -145,6 +145,29 @@ namespace ErfanLearn.DataLayer.Migrations
                     b.HasKey("StatusId");
 
                     b.ToTable("CourseStatus");
+                });
+
+            modelBuilder.Entity("ErfanLearn.DataLayer.Entities.FileManager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileContent")
+                        .IsRequired();
+
+                    b.Property<byte[]>("FileData")
+                        .IsRequired();
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired();
+
+                    b.Property<string>("FileName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("ErfanLearn.DataLayer.Entities.Permission.Permission", b =>

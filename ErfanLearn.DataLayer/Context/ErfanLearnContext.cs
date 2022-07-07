@@ -3,6 +3,7 @@ using ErfanLearn.DataLayer.Entities.User;
 using ErfanLearn.DataLayer.Entities.Wallet;
 using ErfanLearn.DataLayer.Entities.Permission;
 using ErfanLearn.DataLayer.Entities.Course;
+using ErfanLearn.DataLayer.Entities;
 
 namespace ErfanLearn.DataLayer.Context
 {
@@ -34,9 +35,15 @@ namespace ErfanLearn.DataLayer.Context
         public DbSet<RolePermission> RolePermissions { get; set; }
         #endregion
 
-        #region 
+        #region Courses
         public DbSet<CourseGroup> courseGroups { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseLevel> CourseLevel { get; set; }
+        public DbSet<CourseStatus> CourseStatus { get; set; }
+        public DbSet<CourseEpisode> CourseEpisodes { get; set; }
         #endregion
+        
+        public DbSet<FileManager> Files { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

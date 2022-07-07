@@ -11952,7 +11952,8 @@
   },
   "packageFolders": {
     "C:\\Users\\NOOR\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -11964,7 +11965,8 @@
       "outputPath": "E:\\ErfanLearn\\ErfanLearn\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\NOOR\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11976,6 +11978,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R1 2022\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
