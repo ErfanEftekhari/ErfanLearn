@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using ErfanLearn.Core.Generator;
 using ErfanLearn.Core.DTOs;
+using ErfanLearn.Core.Convertors;
+using ErfanLearn.Core.Security;
 
 namespace ErfanLearn.Core.Services
 {
@@ -79,7 +81,7 @@ namespace ErfanLearn.Core.Services
             course.CreateDate = DateTime.Now;
             course.CourseImageName = "no-photo.jpg";
             //TODO Check Image
-            if (imgCourse != null)
+            if (imgCourse != null && imgCourse.IsImage())
             {
                 course.CourseImageName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(imgCourse.FileName);
                 string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/course/image", course.CourseImageName);
@@ -88,9 +90,23 @@ namespace ErfanLearn.Core.Services
                 {
                     imgCourse.CopyTo(stream);
                 }
+
+
+                ImageConvertor imgResizer = new ImageConvertor();
+                string thumbPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/course/thumb", course.CourseImageName);
+
+                imgResizer.Image_resize(imagePath, thumbPath,150);
             }
 
-            //ToDO Upload Demo 
+            if (demo != null)
+            {
+                course.DemoFileName = NameGenerator.GeneratorUniqCode() + Path.GetExtension(demo.FileName);
+                string demoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/course/demoes", course.DemoFileName);
+                using (var stream = new FileStream(demoPath, FileMode.Create))
+                {
+                    demo.CopyTo(stream);
+                }
+            }
 
             _context.Add(course);
             _context.SaveChanges();

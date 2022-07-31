@@ -189,3 +189,4 @@ E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\ErfanLearn.Web.genruntimeconfig
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\CourseGroupComponent\CourseGroup.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Courses\Create.cshtml.g.cs
 E:\ErfanLearn\ErfanLearn\obj\Debug\netcoreapp2.1\Razor\Pages\Admin\Courses\Index.cshtml.g.cs
+E:\ErfanLearn\ErfanLearn\bin\Debug\netcoreapp2.1\web.config

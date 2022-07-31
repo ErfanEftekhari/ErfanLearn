@@ -50,7 +50,7 @@ namespace ErfanLearn.Web.Pages.Admin.Courses
 
             var result = _courseService.CreateCource(Course, demoUp, imgCourseUp);
 
-            return Page();
+            return RedirectToPage("index");
         }
     }
 }

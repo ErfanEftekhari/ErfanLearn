@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UEc4IdAWXqwLxU4NpJ85GN4D/2Im8xh5bi/iXpaVlFN+9pbaEJzP80KLtx755hogOaXrk8zSmrMKxIeDssBfZQ==",
+  "dgSpecHash": "ZWJLX1GCVEJAHrpg4msNfnwHcZzsFS2VSb0fMi2XMI32cJp/QJGcRMbK/0HVpjT7aZRxOCwgjgpYorUCfqNJXQ==",
   "success": true,
   "projectFilePath": "E:\\ErfanLearn\\ErfanLearn\\ErfanLearn.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\NOOR\\.nuget\\packages\\corecompat.system.drawing.v2\\5.2.0-preview1-r131\\corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

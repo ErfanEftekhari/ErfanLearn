@@ -21,7 +21,7 @@
             <div class="panel-body">
                 <div class="col-md-12" style="margin: 10px 0;">
                           
-                    <a asp-page="CreateCourse" class="btn btn-outline btn-success">افزودن دوره جدید</a>
+                    <a asp-page="Create" class="btn btn-outline btn-success">افزودن دوره جدید</a>
                            
                 </div>
                 
@@ -39,7 +39,7 @@
                     {
                         <tr>
                             <td>
-                                <img src="/course/image/@item.ImageName" class="thumbnail" style="max-width: 120px"/>
+                                <img src="/course/thumb/@item.ImageName" class="thumbnail"/>
                             </td>
                             <td>
                                 @item.Title

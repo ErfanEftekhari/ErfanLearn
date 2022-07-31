@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Permissions": "4.4.0-preview1-25305-02"
+        },
+        "compile": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4351,6 +4363,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "CoreCompat.System.Drawing.v2": "5.2.0-preview1-r131",
           "ErfanLearn.DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor": "1.1.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.1.0",
@@ -4381,6 +4394,18 @@
     }
   },
   "libraries": {
+    "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+      "sha512": "+WrScg+skrIiNLBwbl+BFdlSyzUqKOZtAUskW2xfI8vcKQdDJp+UoreUFC9uMSEgSiAR32e5l3fTtFDUKEpRaA==",
+      "type": "package",
+      "path": "corecompat.system.drawing.v2/5.2.0-preview1-r131",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512",
+        "corecompat.system.drawing.v2.nuspec",
+        "lib/netstandard2.0/CoreCompat.System.Drawing.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",

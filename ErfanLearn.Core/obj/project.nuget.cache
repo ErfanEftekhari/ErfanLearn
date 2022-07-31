@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HNX0x/GLMuCXWcMjZtgQyZzJnZZXQ2qw3wlPaQqxxek7OpwCr3dYGVYA2GGMGGtwkX+bywmbxjeuKbXkZQG/NQ==",
+  "dgSpecHash": "Lx3+Vm89A89bYYFB/MSHlQHb68T+jepIHnW4IxNyV8+lb7jtdtkcit1ckAUURhADDl88aqyWtXf1YnpDwInibw==",
   "success": true,
   "projectFilePath": "E:\\ErfanLearn\\ErfanLearn.Core\\ErfanLearn.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\NOOR\\.nuget\\packages\\corecompat.system.drawing.v2\\5.2.0-preview1-r131\\corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\1.1.0\\microsoft.aspnetcore.antiforgery.1.1.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore.authorization\\1.1.0\\microsoft.aspnetcore.authorization.1.1.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\1.1.0\\microsoft.aspnetcore.cryptography.internal.1.1.0.nupkg.sha512",
@@ -144,6 +145,7 @@
     "C:\\Users\\NOOR\\.nuget\\packages\\system.security.cryptography.openssl\\4.0.0\\system.security.cryptography.openssl.4.0.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\system.security.cryptography.primitives\\4.0.0\\system.security.cryptography.primitives.4.0.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.1.0\\system.security.cryptography.x509certificates.4.1.0.nupkg.sha512",
+    "C:\\Users\\NOOR\\.nuget\\packages\\system.security.permissions\\4.4.0-preview1-25305-02\\system.security.permissions.4.4.0-preview1-25305-02.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\system.security.principal\\4.3.0\\system.security.principal.4.3.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
     "C:\\Users\\NOOR\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",

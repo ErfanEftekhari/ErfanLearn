@@ -44,6 +44,20 @@
           "ErfanLearn.Web.dll": {}
         }
       },
+      "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+        "dependencies": {
+          "System.Security.Permissions": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/CoreCompat.System.Drawing.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
       "Microsoft.EntityFrameworkCore/2.1.2": {
         "dependencies": {
@@ -177,6 +191,7 @@
       },
       "ErfanLearn.Core/1.0.0": {
         "dependencies": {
+          "CoreCompat.System.Drawing.v2": "5.2.0-preview1-r131",
           "ErfanLearn.DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor": "2.1.1",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1",
@@ -3240,6 +3255,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CoreCompat.System.Drawing.v2/5.2.0-preview1-r131": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+WrScg+skrIiNLBwbl+BFdlSyzUqKOZtAUskW2xfI8vcKQdDJp+UoreUFC9uMSEgSiAR32e5l3fTtFDUKEpRaA==",
+      "path": "corecompat.system.drawing.v2/5.2.0-preview1-r131",
+      "hashPath": "corecompat.system.drawing.v2.5.2.0-preview1-r131.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
